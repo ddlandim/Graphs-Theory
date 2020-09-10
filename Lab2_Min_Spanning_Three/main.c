@@ -1,6 +1,6 @@
 //KRUSKAL Implementation to BUS PROBLEM in Graphs Theory Discipline in Computer Science Degree at Unifesp-BR
 //Douglas Diniz Landim, mrdfane@gmail.com // ddlandim@unifesp.br (this email should be invalid after 2021)
-//Check the Spaning Three Folder in Graphs Theory at https://github.com/ddlandim
+//Check the Spaning Three Folder in Graphs Theory Repository at https://github.com/ddlandim
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,17 +18,19 @@ int set[MAX];
 
 struct edge{ int src, dest, weight; }Graph[MAX];
 
+//Utility function of Kruskal Algorithm, step
 int Find_Set(int node)
 {
     if(set[node] != node)
         return Find_Set(set[node]);
     else return node;
 }
+//Utility function of Kruskal Algorithm, step
 void Union(int u, int v)
 {
     set[Find_Set(v)] = Find_Set(u);
 }
-//compare function to use of qsort from stdlib.h with weight atrribute of struct edge
+//Utility function of qsort from stdlib.h with weight attribute of struct edge
 int compareWeights (const void *x, const void *y) {
     int a = ((struct edge *)x)->weight;
     int b = ((struct edge *)y)->weight;
